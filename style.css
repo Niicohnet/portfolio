@@ -1,0 +1,235 @@
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #fefefe;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  body,
+.hero,
+section,
+.project-card,
+.skills li,
+footer.contact,
+h1, h2, p, li, a {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+  /* Hero Section */
+  .hero {
+    position: relative; /* for button positioning */
+    background-color: #f5ebe0;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2.8rem;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    color: #5e548e;
+  }
+  
+  .hero p {
+    font-size: 1.3rem;
+    color: #7a6f9b;
+    font-weight: 400;
+    margin: 0;
+  }
+  
+  /* Dark mode toggle button styles */
+  #darkModeToggleBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #5e548e;
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+    transition: background-color 0.3s;
+  }
+  
+  #darkModeToggleBtn:hover {
+    background-color: #4a4272;
+  }
+  
+  /* Section Styling */
+  section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  h2 {
+    color: #5e548e;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  /* Projects */
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .project-card {
+    background-color: #e6e6fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(94, 84, 142, 0.2);
+  }
+  
+  .project-card h3 {
+    margin-top: 0;
+    color: #4a4272;
+  }
+  
+  /* Skills */
+  .skills ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .skills li {
+    background-color: #d8e2dc;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #5e548e;
+    box-shadow: 1px 1px 3px rgba(94, 84, 142, 0.15);
+  }
+  
+  /* Contact */
+  footer.contact {
+    text-align: center;
+    background-color: #f0efeb;
+    padding: 30px 20px;
+    margin-top: 60px;
+    font-weight: 500;
+    color: #5e548e;
+  }
+  
+  footer.contact a {
+    color: #5e548e;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  footer.contact a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Dark mode styles */
+  body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  body.dark-mode .hero {
+    background-color: #1e1e1e;
+  }
+  
+  body.dark-mode .hero h1,
+  body.dark-mode .hero p {
+    color: #cfcfff;
+  }
+  
+  body.dark-mode h2 {
+    color: #cfcfff;
+    border-color: #444;
+  }
+  
+  body.dark-mode .project-card {
+    background-color: #2a2a40;
+    box-shadow: 1px 1px 5px rgba(111, 103, 180, 0.8);
+    color: #dcdcff;
+  }
+  
+  body.dark-mode .skills li {
+    background-color: #33334d;
+    color: #cfcfff;
+    box-shadow: 1px 1px 3px rgba(111, 103, 180, 0.5);
+  }
+  
+  body.dark-mode footer.contact {
+    background-color: #1a1a1a;
+    color: #cfcfff;
+  }
+  
+  body.dark-mode footer.contact a {
+    color: #a3a0ff;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .project-list {
+      flex-direction: column;
+    }
+  
+    .hero h1 {
+      font-size: 2rem;
+    }
+  }  
+  /* Smooth transitions for colors and backgrounds */
+body,
+.hero,
+section,
+.project-card,
+.skills li,
+footer.contact,
+h1, h2, p, li, a {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    /* Stack main sections vertically */
+    .hero, section {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    /* Adjust font sizes */
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    p, li {
+      font-size: 1rem;
+    }
+  
+    /* Make buttons full width and easier to tap */
+    button, #darkModeToggleBtn {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1rem;
+    }
+  
+    /* Projects: stack cards vertically */
+    .projects-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    /* Skills list: center align */
+    .skills {
+      text-align: center;
+      padding: 10px;
+    }
+  }  
