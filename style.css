@@ -1,49 +1,54 @@
 /* Reset and base styles */
 * {
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     font-family: 'Quicksand', sans-serif;
     background-color: #fefefe;
     color: #333;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-  }
-  body,
+    /* Smooth transitions for colors and backgrounds */
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Ensure all relevant elements transition smoothly */
 .hero,
 section,
 .project-card,
 .skills li,
 footer.contact,
-h1, h2, p, li, a {
-  transition: background-color 0.4s ease, color 0.4s ease;
+h1, h2, p, li, a,
+#darkModeToggleBtn { /* Added dark mode button for transition */
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
-  /* Hero Section */
-  .hero {
+
+/* Hero Section */
+.hero {
     position: relative; /* for button positioning */
     background-color: #f5ebe0;
     text-align: center;
     padding: 60px 20px;
-  }
-  
-  .hero h1 {
+}
+
+.hero h1 {
     font-size: 2.8rem;
     margin: 0 0 10px 0;
     font-weight: 600;
     color: #5e548e;
-  }
-  
-  .hero p {
+}
+
+.hero p {
     font-size: 1.3rem;
     color: #7a6f9b;
     font-weight: 400;
     margin: 0;
-  }
-  
-  /* Dark mode toggle button styles */
-  #darkModeToggleBtn {
+}
+
+/* Dark mode toggle button styles */
+#darkModeToggleBtn {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -56,180 +61,228 @@ h1, h2, p, li, a {
     font-weight: 600;
     font-family: 'Quicksand', sans-serif;
     transition: background-color 0.3s;
-  }
-  
-  #darkModeToggleBtn:hover {
+    /* Added responsive adjustments for button */
+    width: auto; /* Override potential 100% from a generic button rule */
+    font-size: 1rem;
+}
+
+#darkModeToggleBtn:hover {
     background-color: #4a4272;
-  }
-  
-  /* Section Styling */
-  section {
+}
+
+/* Section Styling */
+section {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
-  }
-  
-  h2 {
+}
+
+h2 {
     color: #5e548e;
     border-bottom: 2px solid #ccc;
     padding-bottom: 10px;
     margin-bottom: 20px;
     font-weight: 600;
-  }
-  
-  /* Projects */
-  .project-list {
+}
+
+/* Projects Section - UPDATED FOR LAYOUT AND IMAGE SIZE */
+.project-list {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .project-card {
+    flex-wrap: wrap; /* Allows project cards to wrap to the next line */
+    justify-content: center; /* Centers project cards horizontally */
+    gap: 30px; /* Space between project cards */
+    margin-top: 20px; /* Add some space from the heading */
+}
+
+.project-card {
     background-color: #e6e6fa;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 1px 1px 5px rgba(94, 84, 142, 0.2);
-  }
-  
-  .project-card h3 {
+    max-width: 320px; /* Crucial: Limits the max width of each project card */
+    width: 100%; /* Ensures it takes up full width up to max-width */
+    display: flex; /* Make it a flex container to arrange content inside */
+    flex-direction: column; /* Stack content inside the card */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+    position: relative; /* For the overlay positioning */
+}
+
+.project-card h3 {
     margin-top: 0;
     color: #4a4272;
-  }
-  
-  /* Skills */
-  .skills ul {
+}
+
+/* Image within project card */
+.project-card .project-img {
+    width: 100%; /* Image takes full width of its parent (.project-card) */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Slightly smaller border-radius for image than card */
+    margin-bottom: 15px; /* Space between image and description */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for image */
+}
+
+/* Link surrounding the image */
+.project-card a {
+    width: 100%; /* Make the link cover the entire image area */
+    display: block; /* To apply width */
+    position: relative; /* For overlay positioning */
+}
+
+/* Project title overlay on image */
+.project-title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Ensures it covers the full width of the image */
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-bottom-left-radius: 8px; /* Match image radius */
+    border-bottom-right-radius: 8px; /* Match image radius */
+    pointer-events: none; /* so clicks pass through to the link */
+}
+
+.project-description {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    /* Color will be set by the main body or dark-mode rules */
+}
+
+
+/* Skills */
+.skills ul {
     list-style: none;
     padding-left: 0;
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
-  }
-  
-  .skills li {
+}
+
+.skills li {
     background-color: #d8e2dc;
     padding: 10px 15px;
     border-radius: 8px;
     font-weight: 500;
     color: #5e548e;
     box-shadow: 1px 1px 3px rgba(94, 84, 142, 0.15);
-  }
-  
-  /* Contact */
-  footer.contact {
+}
+
+/* Contact */
+footer.contact {
     text-align: center;
     background-color: #f0efeb;
     padding: 30px 20px;
     margin-top: 60px;
     font-weight: 500;
     color: #5e548e;
-  }
-  
-  footer.contact a {
+}
+
+footer.contact a {
     color: #5e548e;
     text-decoration: none;
     font-weight: 600;
-  }
-  
-  footer.contact a:hover {
+}
+
+footer.contact a:hover {
     text-decoration: underline;
-  }
-  
-  /* Dark mode styles */
-  body.dark-mode {
+}
+
+/* Dark mode styles */
+body.dark-mode {
     background-color: #121212;
     color: #e0e0e0;
-  }
-  
-  body.dark-mode .hero {
+}
+
+body.dark-mode .hero {
     background-color: #1e1e1e;
-  }
-  
-  body.dark-mode .hero h1,
-  body.dark-mode .hero p {
+}
+
+body.dark-mode .hero h1,
+body.dark-mode .hero p {
     color: #cfcfff;
-  }
-  
-  body.dark-mode h2 {
+}
+
+body.dark-mode h2 {
     color: #cfcfff;
     border-color: #444;
-  }
-  
-  body.dark-mode .project-card {
+}
+
+body.dark-mode .project-card {
     background-color: #2a2a40;
     box-shadow: 1px 1px 5px rgba(111, 103, 180, 0.8);
+    color: #dcdcff; /* Ensuring text color is visible */
+}
+
+body.dark-mode .project-card h3 { /* Make project card headings visible in dark mode */
+    color: #cfcfff;
+}
+
+body.dark-mode .project-description { /* Make project description visible in dark mode */
     color: #dcdcff;
-  }
-  
-  body.dark-mode .skills li {
+}
+
+body.dark-mode .skills li {
     background-color: #33334d;
     color: #cfcfff;
     box-shadow: 1px 1px 3px rgba(111, 103, 180, 0.5);
-  }
-  
-  body.dark-mode footer.contact {
+}
+
+body.dark-mode footer.contact {
     background-color: #1a1a1a;
     color: #cfcfff;
-  }
-  
-  body.dark-mode footer.contact a {
-    color: #a3a0ff;
-  }
-  
-  /* Responsive */
-  @media (max-width: 600px) {
-    .project-list {
-      flex-direction: column;
-    }
-  
-    .hero h1 {
-      font-size: 2rem;
-    }
-  }  
-  /* Smooth transitions for colors and backgrounds */
-body,
-.hero,
-section,
-.project-card,
-.skills li,
-footer.contact,
-h1, h2, p, li, a {
-  transition: background-color 0.4s ease, color 0.4s ease;
 }
-/* Mobile responsiveness */
+
+body.dark-mode footer.contact a {
+    color: #a3a0ff;
+}
+
+/* Responsive Adjustments */
+/* Mobile responsiveness: Combined and refined previous media queries */
 @media (max-width: 768px) {
-    /* Stack main sections vertically */
-    .hero, section {
-      flex-direction: column;
-      padding: 20px;
-    }
-  
     /* Adjust font sizes */
-    h1 {
-      font-size: 2rem;
+    .hero h1 {
+        font-size: 2.2rem; /* Slightly larger for better readability */
+    }
+    .hero p {
+        font-size: 1.1rem;
     }
     h2 {
-      font-size: 1.5rem;
+        font-size: 1.8rem;
     }
     p, li {
-      font-size: 1rem;
+        font-size: 1rem;
     }
-  
-    /* Make buttons full width and easier to tap */
-    button, #darkModeToggleBtn {
-      width: 100%;
-      padding: 12px;
-      font-size: 1.1rem;
+
+    /* Adjust section padding */
+    section {
+        padding: 0 15px; /* Slightly less padding on very small screens */
     }
-  
-    /* Projects: stack cards vertically */
-    .projects-container {
-      flex-direction: column;
-      gap: 15px;
+
+    /* Dark Mode Toggle Button position for smaller screens */
+    #darkModeToggleBtn {
+        position: static; /* Remove absolute positioning */
+        margin: 20px auto 0; /* Center it below the hero text */
+        display: block; /* Make it take full width (or nearly) */
+        width: 80%; /* Adjust width for mobile */
+        max-width: 200px; /* Don't let it get too wide */
     }
-  
+
+    /* Projects: stack cards vertically and center them */
+    .project-list {
+        flex-direction: column; /* Stack vertically on small screens */
+        align-items: center; /* Center project cards */
+        gap: 20px; /* Reduce gap for vertical stacking */
+    }
+    .project-card {
+        max-width: 90%; /* Allow cards to take more width on small screens */
+        padding: 15px; /* Slightly less padding */
+    }
+
     /* Skills list: center align */
-    .skills {
-      text-align: center;
-      padding: 10px;
+    .skills ul {
+        justify-content: center; /* Center skill tags */
     }
-  }  
+}
+
